@@ -1,6 +1,6 @@
 # 😁 About Me
 
-Hi, I am 陳廣恩. You can call me Ken. I am working as a full-time Flutter developer at Foxconn(鴻海). Currently, I am actively working on two projects that are fully written in Flutter. One is mobile and the other is a web application.
+Hi, I am Ken. I am working as a full-time Flutter developer at Foxconn. Currently, I am actively working on two projects that are fully written in Flutter. One is mobile and the other is a web application.
 
 I hope everyone is doing well during the pandemic.😊
 
