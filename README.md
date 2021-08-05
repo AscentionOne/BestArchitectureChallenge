@@ -59,7 +59,7 @@ Domain layer is very special. It doesn't depend on any other layer. Meaning that
 
 Handling the exception from REST API or any other services is a pain and will be complicated as your project grows. So making it into a custom **Failure** union class will make your life easier.
 
-![domain](image\domain.PNG)
+![domain](image/domain.PNG)
 
 <br />
 
