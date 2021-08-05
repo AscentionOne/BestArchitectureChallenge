@@ -8,7 +8,7 @@ I hope everyone is doing well during the pandemic.😊
 
 This project is fully sound Null-Safety. I create this project on flutter channel `dev`. However, flutter channel `stable` should also be fine.
 
-You shouldn't need to run the build runner again. If you want to run below code in the CLI.
+You shouldn't need to run the build runner again. If you want to, run the below code in the CLI.
 
 ```dart
 flutter pub run build_runner build --delete-conflicting-outputs
