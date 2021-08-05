@@ -32,7 +32,7 @@ Here we can see the architecture can be separated into Presentation/Application/
 
 <br />
 
-## Presentation
+## <span style="color:#85C1E9">Presentation</span>
 
 Presentation layer is where all the **Flutter Widgets** lived in along with the **state** of the widget.
 
@@ -40,7 +40,7 @@ Presentation layer is where all the **Flutter Widgets** lived in along with the 
 
 <br />
 
-## Application
+## <span style="color:#F7DC6F">Application
 
 The role of the Application layer is "_What to do next with the data?_". So this is where the business logic comes in and Yes! this is where the **BLoC** will live in. You will not find any **UI code, network request code, or database code here**. Very important.
 
@@ -48,7 +48,7 @@ The role of the Application layer is "_What to do next with the data?_". So this
 
 <br />
 
-## Domain
+## <span style="color:#F1948A">Domain
 
 Domain layer is very special. It doesn't depend on any other layer. Meaning that if you change the backend service for example from AWS to Firebase or other services. This has nothing to do with the domain layer. Domain layer is where you
 
@@ -63,7 +63,7 @@ Handling the exception from REST API or any other services is a pain and will be
 
 <br />
 
-## Infrastructure
+## <span style="color:#76D7C4">Infrastructure
 
 Infrastructure layer is much like the presentation layer instead, it is at the bottom of the layer. This is where the remote service (REST API, Firebase ... etc) code will be. Also if your application has a local service such as [sqflite](https://pub.dev/packages/sqflite) ,[shared_preferences](https://pub.dev/packages/shared_preferences) package, or other database packages([moor](https://pub.dev/packages/moor), [hive](https://pub.dev/packages/hive) ...etc) this is where it will be
 
@@ -95,8 +95,6 @@ Flutter BLoC is the package I used the most and like a lot. Here I will briefly 
 
 <br />
 
----
-
 ## <img src="image/bloc.png" width="80" align ='center'> BLoC (Business Logic Component)
 
 Flutter BLoC is a library that implements BLoC Design Pattern. The BLoC Pattern has been designed by _Paolo Soares_ and _Cong Hui_, from Google and first presented during the DartConf 2018.
@@ -110,8 +108,6 @@ However, stream is very powerful. The Very Good Ventures team manage to abstract
 However, you will still need to learn a few core concepts such as the Bloc API itself and the difference between a BlocBuilder and a BlocListener. More information and example check [here](https://bloclibrary.dev/#/gettingstarted)!
 
 <br />
-
----
 
 ![bloc](https://raw.githubusercontent.com/felangel/bloc/master/docs/assets/bloc_architecture_full.png)
 
