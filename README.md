@@ -24,7 +24,7 @@ source: From **Reso Coder**
 
 ### Let's see how the finished project folder structure will look like first.
 
-![folder-architecture](image\folder_architecture.png)
+![folder-architecture](image/folder_architecture.png)
 
 <br />
 
@@ -36,7 +36,7 @@ Here we can see the architecture can be separated into Presentation/Application/
 
 Presentation layer is where all the **Flutter Widgets** lived in along with the **state** of the widget.
 
-![presentation](image\presentation.PNG)
+![presentation](image/presentation.PNG)
 
 <br />
 
@@ -44,7 +44,7 @@ Presentation layer is where all the **Flutter Widgets** lived in along with the 
 
 The role of the Application layer is "_What to do next with the data?_". So this is where the business logic comes in and Yes! this is where the **BLoC** will live in. You will not find any **UI code, network request code, or database code here**. Very important.
 
-![application](image\application.PNG)
+![application](image/application.PNG)
 
 <br />
 
@@ -73,7 +73,7 @@ Infrastructure layer is much like the presentation layer instead, it is at the b
 
 **Repository** is where you communicate between the outside world and domain. It returns either failure or success entity (converted from DTO) to the domain layer. Here I am using the Either<Failure, Entity>. Either is functional programming functionality provided from [dartz](https://pub.dev/packages/dartz) package.
 
-![infrastructure](image\infrastructure.PNG)
+![infrastructure](image/infrastructure.PNG)
 
 <br />
 
@@ -97,7 +97,7 @@ Flutter BLoC is the package I used the most and like a lot. Here I will briefly 
 
 ---
 
-## <img src="image\bloc.png" width="80" align ='center'> BLoC (Business Logic Component)
+## <img src="image/bloc.png" width="80" align ='center'> BLoC (Business Logic Component)
 
 Flutter BLoC is a library that implements BLoC Design Pattern. The BLoC Pattern has been designed by _Paolo Soares_ and _Cong Hui_, from Google and first presented during the DartConf 2018.
 
@@ -201,11 +201,11 @@ More information check [here](https://flutter.dev/docs/cookbook/testing/widget/i
 
 ## Test Result
 
-![test_list](image\test_list.PNG)
+![test_list](image/test_list.PNG)
 
 Expanded:
 
-![test_result](image\test.PNG)
+![test_result](image/test.PNG)
 
 # 📪 Contact Information
 
