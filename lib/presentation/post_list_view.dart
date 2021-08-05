@@ -42,7 +42,10 @@ class PostListView extends StatelessWidget {
         },
       ),
       failure: () => Center(
-        child: Text('Failed to fetch posts'),
+        child: Text(
+          'Failed to fetch posts',
+          key: Key('__failureTextMessage__'),
+        ),
       ),
     );
   }

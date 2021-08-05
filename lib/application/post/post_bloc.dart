@@ -36,8 +36,8 @@ class PostBloc extends Bloc<PostEvent, PostState> {
         yield state.copyWith(
           postStatus: PostStatus.loading(),
         );
-        final filteredPosts = state.posts
-          ..sort((a, b) => int.parse(a.id).compareTo(int.parse(b.id)));
+        final filteredPosts = sortById(state.posts);
+
         yield state.copyWith(
           postStatus: PostStatus.success(),
           posts: filteredPosts,
@@ -47,9 +47,8 @@ class PostBloc extends Bloc<PostEvent, PostState> {
         yield state.copyWith(
           postStatus: PostStatus.loading(),
         );
-        // await Future.delayed(Duration(seconds: 2));
-        final filteredPosts = state.posts
-          ..sort((a, b) => a.title.compareTo(b.title));
+        final filteredPosts = sortByTitle(state.posts);
+
         yield state.copyWith(
           postStatus: PostStatus.success(),
           posts: filteredPosts,
@@ -57,4 +56,12 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       },
     );
   }
+}
+
+List<Post> sortById(List<Post> posts) {
+  return posts..sort((a, b) => int.parse(a.id).compareTo(int.parse(b.id)));
+}
+
+List<Post> sortByTitle(List<Post> posts) {
+  return posts..sort((a, b) => a.title.compareTo(b.title));
 }

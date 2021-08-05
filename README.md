@@ -1,72 +1,218 @@
-# 📢📢📢 Flutter Best Architecture Challenge 📢📢📢
-嗨！Flutter Taipei 的大家還好嗎？  
-由於疫情嚴峻，Flutter Taipei 已經有一陣子沒有辦活動了🥲  
-已經很多人在敲碗問有沒有線上活動可以參加，別急別急！我們可是都聽到了呢！  
-Flutter Taipei 準備要來響應前幾週 GDG Taipei 辦的 Best practice challenge 活動啦 📢  
-活動內容是將我們準備的一個 Code 非常 Free Style 的 Flutter Project  
-目標是將它改寫成你自己心中認為最理想的樣子🤘  
-不管你是要 BLoC/MVVM/MVC/MVP/MVI/Redux 或是各種架構通通都沒有問題😎  
-再搭配你知道的好用 Library、分享你會如何做單元測試、UI整合測試等等  
-讓你想怎麼 show 就怎麼 show，讓大家知道你多麽的 6⃣ (單押x3) 
+# 😁 About Me
 
-也許在實際開發中，需求單純的專案不需套用過多 Pattern，畢竟殺雞焉用牛刀呢🔪  
-但我們希望透過這次的活動，讓大家在面對專案架構時，產生更多元化的思考  
-對於開發老手而言，可以分享自己的技術架構與思路、與其他經驗豐富的夥伴一起交流切磋  
-對於剛入門的初心者，也能參考別人架構的實踐方式  
-實作完後讓大家看有沒有自己原本沒注意到的地方，相信一定能收到很棒的回饋！  
+Hi, I am 陳廣恩. You can call me Ken. I am working as a full-time Flutter developer at Foxconn(鴻海). Currently, I am actively working on two projects that are fully written in Flutter. One is mobile and the other is a web application.
 
-在活動的尾聲，我們會從有參與這次活動的夥伴中  
-徵求自願者，向大家分享自己在活動中的專案和思路  
-若已經是 Flutter 開發者，也可以分享自己平時的開發習慣和慣用的程式架構 🙌  
-當然～～～好康是絕對不能少的！我們已經向 Google 爭取到小禮物啦！  
-準備送給自願分享者以及此次活動的優勝者囉🏆  
+I hope everyone is doing well during the pandemic.😊
 
-話不多說！趕快 Fork 專案！Let's get started !  
-專案傳送門： https://github.com/flutterTaipei/BestArchitectureChallenge
+# 🏠 Architecture
 
-**如果對活動有任何建議或想法的，也歡迎來信通知我們唷🥳**  
-**聯絡方式：flutter.taipei@gmail.com**
+### Why I choose this architecture?
 
-## 活動時間
-即日起至 2021 年 8 月 31 日晚上 00:00 分截止
+There are many architectures out there that are all fascinating. For example MVVM, MVC, MVP ... etc. The reason I am choosing the "Domain-Driven Design" architecture is this is the architecture that I find comfortable working with. It is easy to maintain and scale in the long run. There is no good or bad architecture, to be honest. There is the only architecture that you found easy to work with, easy to maintain, and most importantly works well with your project.
 
-## 評選方式
-以 Github 專案獲得的星星數，由多到少排序，取前 3 名為優勝者
+<br />
 
-## 獲勝獎品
-Google 贊助的 Flutter 馬克杯乙份 🎁
+## Domain-Driven Design Architecture (DDD)
 
-## 參賽方式
+📢 Special shout out! This architecture is create by **Reso Coder**. The credits should go to **Reso Coder (Matt)**. If you want to learn more please check out his [YouTube](https://www.youtube.com/channel/UCSIvrn68cUk8CS8MbtBmBkA) channel there are more great resources to learn💪.
 
-1. Fork Flutter Taipei 的 專案到你自己的 Github 上
-2. 在專案 README 找地方註明「此為參加 Flutter Best Architecture Challenge 活動的專案」，並留下可以讓我們聯絡到你聯絡方式
-3. 改寫架構後並提交，就這麼簡單！
+Lets first look at the big picture of the DDD architecture.
 
-## 增加星星小秘訣⭐️⭐️⭐️
+![](https://resocoder.com/wp-content/uploads/2020/03/DDD-Flutter-Diagram-v3.svg)
 
-1. 在 README 介紹你的架構、介紹你使用的第三方套件以及為什麼會去使用它，  
-   甚至去分析你的架構優缺點在哪裡（小編看到詳細的README絕對第一個去Star 🙋‍♂️
-2. 在 Flutter Taipei Facebook 社團 或 Discord 分享你的專案或提問，和大家一起討論，增加曝光度
+source: From **Reso Coder**
 
-___
+### Let's see how the finished project folder structure will look like first.
 
+![folder-architecture](image\folder_architecture.png)
 
-## 開發環境
+<br />
 
-```
-Flutter 2.2.2 • channel stable • https://github.com/flutter/flutter.git
-Framework • revision d79295af24 (3 weeks ago) • 2021-06-11 08:56:01 -0700
-Engine • revision 91c9fc8fe0
-Tools • Dart 2.13.3
-```
-## 目標
+Here we can see the architecture can be separated into Presentation/Application/Infrastructure layer (from top to bottom). Each has its own responsibilities.
 
-- 將貼文API的內容呈現在畫面上，這裡使用 https://jsonplaceholder.typicode.com/posts
-- 可以根據選擇的內容來排序（範例是用id/title來排序）
-- 改造成你自己的 Best Architecture 🎉🎉🎉
+<br />
 
+## Presentation
 
+Presentation layer is where all the **Flutter Widgets** lived in along with the **state** of the widget.
 
+![presentation](image\presentation.PNG)
 
+<br />
 
+## Application
 
+The role of the Application layer is "_What to do next with the data?_". So this is where the business logic comes in and Yes! this is where the **BLoC** will live in. You will not find any **UI code, network request code, or database code here**. Very important.
+
+![application](image\application.PNG)
+
+<br />
+
+## Domain
+
+Domain layer is very special. It doesn't depend on any other layer. Meaning that if you change the backend service for example from AWS to Firebase or other services. This has nothing to do with the domain layer. Domain layer is where you
+
+- Validate data from the infrastructure layer (backend or local service)
+- Transform data
+- Put the data into Entity classes that you used in your application.
+- **Failure** union type (Kotlin) lived in. (p.s. you don't have to learn Kotlin to use this, but you will need to have a concept in What is a union?)
+
+Handling the exception from REST API or any other services is a pain and will be complicated as your project grows. So making it into a custom **Failure** union class will make your life easier.
+
+![domain](image\domain.PNG)
+
+<br />
+
+## Infrastructure
+
+Infrastructure layer is much like the presentation layer instead, it is at the bottom of the layer. This is where the remote service (REST API, Firebase ... etc) code will be. Also if your application has a local service such as [sqflite](https://pub.dev/packages/sqflite) ,[shared_preferences](https://pub.dev/packages/shared_preferences) package, or other database packages([moor](https://pub.dev/packages/moor), [hive](https://pub.dev/packages/hive) ...etc) this is where it will be
+
+**Data Transfer Object** (DTO) whose purpose is to convert the raw data (dumb) between entities from the Domain layer and plain data from remote service and local service.
+
+**Data sources** operate at the lowest level. Data from the outside world is mostly JSON format, especially from REST API. Its purpose is to convert JSON data to DTO. Here we will be using [json_serializable](https://pub.dev/packages/json_serializable) package to help us doing the `fromJson` and `toJson` functionalities. Through code generation([build_runner](https://pub.dev/packages/build_runner)), we do not have to write `fromJson` and `toJson` on our own. Thank god!
+
+**Repository** is where you communicate between the outside world and domain. It returns either failure or success entity (converted from DTO) to the domain layer. Here I am using the Either<Failure, Entity>. Either is functional programming functionality provided from [dartz](https://pub.dev/packages/dartz) package.
+
+![infrastructure](image\infrastructure.PNG)
+
+<br />
+
+# 📔 State Management
+
+State management has always been a topic that had been continuing discussed a lot. Which is the best state management solution?
+
+As the team, Very Good Ventures, that created Flutter BLoC package said
+
+**_"The best state management solution is the one that works the best for you."_**
+
+There are many [popular state management solutions](https://flutter.dev/docs/development/data-and-backend/state-mgmt/options) to choose from such as **redux**, **mobX**, **flutter_bloc**, and even classic **setState**.
+
+[Provider](https://pub.dev/packages/provider) is also a popular one, which is created by Remi Rousselet. He recently also reinvented a new state management package call [Riverpod](https://pub.dev/packages/riverpod).
+
+Classic Flutter stateful widget is usually enough for a simple application, for example, counter app. However, as your project grows larger and becomes more complicated. Putting all the business logic into the widget UI code will quickly make your code messy and hard to maintain. So many state management solutions come to the rescue.
+
+Flutter BLoC is the package I used the most and like a lot. Here I will briefly discuss how BLoC works and some advantages and disadvantages.
+
+<br />
+
+---
+
+## <img src="image\bloc.png" width="80" align ='center'> BLoC (Business Logic Component)
+
+Flutter BLoC is a library that implements BLoC Design Pattern. The BLoC Pattern has been designed by _Paolo Soares_ and _Cong Hui_, from Google and first presented during the DartConf 2018.
+
+BLoC stands for Business Logic Component. It's a stream-based immutable state management. Widgets send events to the BLoC via Sinks, and widgets are notified by the BLoC via streams.
+
+Ugh... Streams...😱 I know stream is scary. It's quite complicated and needs a lot of knowledge and practice to use it well.
+
+However, stream is very powerful. The Very Good Ventures team manage to abstract the complexity of streams from developers. Developers do not need to maintain the complex subscriptions and lifecycles of stream, and instead, focus on the real, predictable interactions of your product.
+
+However, you will still need to learn a few core concepts such as the Bloc API itself and the difference between a BlocBuilder and a BlocListener. More information and example check [here](https://bloclibrary.dev/#/gettingstarted)!
+
+<br />
+
+---
+
+![bloc](https://raw.githubusercontent.com/felangel/bloc/master/docs/assets/bloc_architecture_full.png)
+
+The above diagram shows us the overview of how bloc works. As we can see bloc communicates with UI through **Event** (from the user) and **State** (to the user).
+
+### Advantage
+
+- Simple, predictable, and testable
+- Make state immutable
+- State and event are independent from each other
+- Utilize the power of Stream
+- Follow the "Separation of Concern" practice
+- Good tooling for VSCode, IntelliJ
+
+### Disadvantage
+
+- need to write a lot of boilerplate code
+
+## Too complicated? Try Cubit
+
+![bloc](https://raw.githubusercontent.com/felangel/bloc/master/docs/assets/cubit_architecture_full.png)
+
+If you think writing a simple function with **bloc** is too complicated they have also created a widget called **cubit**. For more information check [here](https://pub.dev/packages/bloc#cubit)!
+
+<br />
+
+# 📦 Packages Used
+
+I will briefly explain what the package does and why I use them. For more information, I recommend checking out the package. I have them link individually.
+
+[flutter_bloc](https://pub.dev/packages/flutter_bloc): State management library that helps implement the BLoC design pattern
+
+[bloc_test](https://pub.dev/packages/bloc_test): A package for testing BLoC.
+
+[mocktail](https://pub.dev/packages/mocktail): A great testing package also create by **flutter_bloc** team (Very Good Ventures).
+
+[freezed](https://pub.dev/packages/freezed): Great package for code generator for unions/pattern-matching/copy created by Remi Rousselet.
+
+[dartz](https://pub.dev/packages/dartz): Provide functional programming in Dart.
+
+[injectable](https://pub.dev/packages/injectable): Injectable is a convenient code generator for get_it package.
+
+[get_it](https://pub.dev/packages/get_it): Service Locator for Dart and Flutter projects. With this, we can then use the Dependency injection(DI) pattern to inject all the dependencies into the classes that depend on it. As the project grows there will be more business logic involved. Dependency injection is a great way to keep your code clean, better organized, testable, and manageable.
+
+[http](https://pub.dev/packages/http): Classic library for making HTTP requests. Another popular one is [Dio](https://pub.dev/packages/dio)
+
+[json_serializable](https://pub.dev/packages/json_serializable):
+
+[build_runner](https://pub.dev/packages/build_runner): dart code generator that will generate code for json_serializable, injectable and freeze packages.
+
+<br />
+
+# 🧪 Testing
+
+In this project, I provide tests include **Unit Test**, **Bloc Test**, and **Widget Test**. A brief introduction will be listed below. I will also provide some resources. Check if you want to know more.
+
+<br />
+
+## Unit Test
+
+Definition:
+
+- A function/method/variable in isolation
+- Is a pure Dart test, no Flutter dependency
+
+More information check [here](https://flutter.dev/docs/cookbook/testing/unit/introduction)!
+
+Here I did the **postRemoteService**, **postRepository**, and **sort** functionalities unit test.
+
+<br />
+
+## Bloc Test
+
+Test every state that the bloc might be emitting based on different events.
+
+More information check [here](https://pub.dev/packages/bloc_test)!
+
+<br />
+
+## Widget Test
+
+Testing a single UI Component. Make sure that every widget in your app is rendered as expected.
+
+More information check [here](https://flutter.dev/docs/cookbook/testing/widget/introduction)!
+
+<br />
+
+## Test Result
+
+![test_list](image\test_list.PNG)
+
+Expanded:
+
+![test_result](image\test.PNG)
+
+# 📪 Contact Information
+
+Email: ken22885@gmail.com
+
+# 📚 Resources:
+
+To learn more about clean architecture. Check out Uncle Bob's great [article](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
+
+Bloc library detail documentation: https://bloclibrary.dev/#/
