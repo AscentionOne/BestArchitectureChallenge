@@ -4,6 +4,18 @@ Hi, I am 陳廣恩. You can call me Ken. I am working as a full-time Flutter dev
 
 I hope everyone is doing well during the pandemic.😊
 
+# ✨ About This Project
+
+This project is fully sound Null-Safety. I create this project on flutter channel `dev`. However, flutter channel `stable` should also be fine.
+
+You shouldn't need to run the build runner again. If you want to run below code in the CLI.
+
+```dart
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+Build the project in an emulator as you usually do and you should be good to go!
+
 # 🏠 Architecture
 
 ### Why I choose this architecture?
