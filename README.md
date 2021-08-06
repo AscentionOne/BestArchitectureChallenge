@@ -166,7 +166,7 @@ I will briefly explain what the package does and why I use them. For more inform
 
 [http](https://pub.dev/packages/http): Classic library for making HTTP requests. Another popular one is [Dio](https://pub.dev/packages/dio)
 
-[json_serializable](https://pub.dev/packages/json_serializable):
+[json_serializable](https://pub.dev/packages/json_serializable): Provides Dart Build System builders for handling JSON. The builders generate code when they find members annotated with classes defined in [json_annotation](https://pub.dev/packages/json_annotation).
 
 [build_runner](https://pub.dev/packages/build_runner): dart code generator that will generate code for json_serializable, injectable and freeze packages.
 
